@@ -1,0 +1,4 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Min Hugo-side"
+theme = "lanyon-hugo"
