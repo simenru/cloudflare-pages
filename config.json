@@ -1,0 +1,36 @@
+{
+    "builddrafts": false,
+
+    "theme": "lanyon-hugo",
+    "paginate": 5,
+    "baseurl": "/",
+    "canonifyurls": true,
+    "permalinks": {
+        "post": ":year/:month/:day/:title/",
+        "fixed": ":title/"
+    },
+
+    "markup": {
+        "goldmark": {
+            "extensions": {
+                "typographer": true
+            },
+            "renderer": {
+                "unsafe": true
+            }
+        }
+    },
+
+    "pygmentsuseclasses": true,
+
+    "params": {
+        "Title": "To steg fram",
+        "Tagline": "Litt om løping, turer og andre ting",
+        "Author": "Simen Ellingsen Rustad",
+        "DateForm": "2 Jan 2006",
+        "Github": {
+            "Url": "http://github.com/simenru/simenru.github.io",
+            "Head": "master"
+        }
+    }
+}
