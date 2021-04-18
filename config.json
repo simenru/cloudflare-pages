@@ -27,10 +27,6 @@
         "Title": "To steg fram",
         "Tagline": "Litt om løping, turer og andre ting",
         "Author": "Simen Ellingsen Rustad",
-        "DateForm": "2 Jan 2006",
-        "Github": {
-            "Url": "http://github.com/simenru/simenru.github.io",
-            "Head": "master"
-        }
+        "DateForm": "2 Jan 2006"
     }
 }

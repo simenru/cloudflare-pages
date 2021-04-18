@@ -1,0 +1,25 @@
+<div class="photo-grid-line" style="display: flex; flex-flow: row nowrap; align-items: center; margin: .4rem 0 .4rem">
+    {{- if (len .Params | eq 1) -}}
+        <figure>
+            <img src="{{ .Get 0 }}"/>
+        </figure>
+    {{- else -}}
+        {{- $.Scratch.Set "total" 0 -}}
+        {{- range $image := .Params -}}
+            {{- with ( delimit (slice "static" $image) "" | imageConfig ) -}}
+                {{- $.Scratch.Add "total" (div (float .Width) (float .Height)) -}}
+            {{- end -}}
+        {{- end -}}
+        {{- range $index, $image := .Params }}
+            {{- with ( delimit (slice "static" $image) "" | imageConfig ) }}
+                {{- if (eq $index 0) -}}
+                    <img src="{{ $image }}" style="max-width: calc((90vw - {{ sub (len $.Params) 1}} * .4rem) * {{ div (float .Width) .Height }}/{{ $.Scratch.Get "total" }}); margin: 0 .2rem 0 0">
+                {{- else if (eq $index (sub (len $.Params) 1)) -}}
+                    <img src="{{ $image }}" style="max-width: calc((90vw - {{ sub (len $.Params) 1}} * .4rem) * {{ div (float .Width) .Height }}/{{ $.Scratch.Get "total" }}); margin: 0 0 0 .2rem">
+                {{- else -}}
+                    <img src="{{ $image }}" style="max-width: calc((90vw - {{ sub (len $.Params) 1}} * .4rem) * {{ div (float .Width) .Height }}/{{ $.Scratch.Get "total" }}); margin: 0 .2rem 0">
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+</div>
